@@ -28,6 +28,16 @@ public:
     Bagagem(int num);
 };
 
+class Codigo_de_Banco{
+private:
+    std::string codigo;
+    void set_codigo(std::string codigo);
+    std::string get_codigo();
+
+public:
+    Codigo_de_Banco(std::string codigo);
+};
+
 class Cidade{
 private:
     string nome_cidade;

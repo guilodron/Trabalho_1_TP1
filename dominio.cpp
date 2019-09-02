@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <regex>
 #include "dominio.hpp"
 
 using namespace std;
@@ -41,6 +42,25 @@ int Bagagem::get_numero_de_bagagem() {
 
 Bagagem::Bagagem(int num) {
     set_numero_de_bagagem(num);
+}
+
+////////////////////////////////////////////////////// Codigo de Banco
+
+void Codigo_de_Banco::set_codigo(std::string codigo) {
+    std::regex padrao("[0,9]+");
+    if(std::regex_match(codigo, padrao) && codigo.size() == 3){
+        this->codigo = codigo;
+    } else {
+        std::cout << "Codigo de Banco inválido!!!" << std::endl;
+    }
+}
+
+std::string Codigo_de_Banco::get_codigo() {
+    return this->codigo;
+}
+
+Codigo_de_Banco::Codigo_de_Banco(std::string codigo) {
+    set_codigo(codigo);
 }
 
 ////////////////////////////////////////////////////// Cidade
