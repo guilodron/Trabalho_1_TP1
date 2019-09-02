@@ -1,6 +1,8 @@
 #ifndef DOMINIO_HPP
 #define DOMINIO_HPP
 
+#include <string>
+
 using namespace std;
 
 //////////////////////////////////////////
@@ -36,6 +38,26 @@ private:
 
 public:
     Codigo_de_Banco(std::string codigo);
+};
+
+class Codigo_de_Carona{
+private:
+    std::string codigo;
+    void set_codigo(std::string codigo);
+    std::string get_codigo();
+
+public:
+    Codigo_de_Carona(std::string codigo);
+};
+
+class Codigo_de_Reserva{
+private:
+    std::string codigo;
+    void set_codigo(std::string codigo);
+    std::string get_codigo();
+
+public:
+    Codigo_de_Reserva(std::string codigo);
 };
 
 class Cidade{
