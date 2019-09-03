@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cctype>
 #include <regex>
+#include <stdlib.h>
+#include <exception>
 #include "dominio.hpp"
 
 using namespace std;
@@ -16,23 +18,29 @@ char Assento::get_tipo_de_assento(){
 }
 
 void Assento::set_tipo_de_assento(char tipo){
-    tipo = toupper(tipo);
-    std::cout << tipo << std::endl;
-    if(tipo == 'D' || tipo == 'T'){
-        this->tipo_de_assento = tipo;
-    }else {
-        std::cout << "Tipo Inválido!!!" << std::endl;
-    }
+    valida(tipo);
+    this->tipo_de_assento = tipo;
 }
 
+void Assento::valida(char tipo){
+    tipo = toupper(tipo);
+    if(tipo != 'D' && tipo != 'T'){
+        throw std::invalid_argument("Tipo de Assento Invalido");
+    }
+}
 //////////////////////////////////////////////////////// Bagagem
 
 void Bagagem::set_numero_de_bagagem(int num) {
-    if(num > 0 && num <= 4){
-        this->numero_de_bagagem = num;
-    }else {
-        std::cout << "Numero de Bagagem Inválido!!" << std::endl;
+    valida(num);
+    this->numero_de_bagagem = num;
+
+}
+
+void Bagagem::valida(int num){
+    if(num <= 0 || num > 4){
+        throw std::invalid_argument("Numero de Bagagem Inválido!!");
     }
+
 }
 
 int Bagagem::get_numero_de_bagagem() {
@@ -46,11 +54,14 @@ Bagagem::Bagagem(int num) {
 ////////////////////////////////////////////////////// Codigo de Banco
 
 void Codigo_de_Banco::set_codigo(std::string codigo) {
+    valida(codigo);
+    this->codigo = codigo;
+}
+
+void Codigo_de_Banco::valida(std::string codigo){
     std::regex padrao("[0-9]+");
-    if(std::regex_match(codigo, padrao) && codigo.length() == 3){
-        this->codigo = codigo;
-    } else {
-        std::cout << "Codigo de Banco inválido!!!" << std::endl;
+    if(!std::regex_match(codigo, padrao) || codigo.length() != 3){
+        throw invalid_argument("Codigo de Banco Inválido");
     }
 }
 
@@ -65,11 +76,14 @@ Codigo_de_Banco::Codigo_de_Banco(std::string codigo) {
 ////////////////////////////////////////////////////// Codigo de Carona
 
 void Codigo_de_Carona::set_codigo(std::string codigo) {
+    valida(codigo);
+    this->codigo = codigo;
+}
+
+void Codigo_de_Carona::valida(std::string codigo){
     std::regex padrao("[0-9]+");
-    if(std::regex_match(codigo, padrao) && codigo.length() == 4){
-        this->codigo = codigo;
-    } else {
-        std::cout << "Codigo de Carona inválido!!!" << std::endl;
+    if(!std::regex_match(codigo, padrao) || codigo.length() != 4){
+        throw invalid_argument("Codigo de Carona Inválido");
     }
 }
 
@@ -84,11 +98,14 @@ Codigo_de_Carona::Codigo_de_Carona(std::string codigo) {
 ////////////////////////////////////////////////////// Codigo de Reserva
 
 void Codigo_de_Reserva::set_codigo(std::string codigo) {
+    valida(codigo);
+    this->codigo = codigo;
+}
+
+void Codigo_de_Reserva::valida(std::string codigo){
     std::regex padrao("[0-9]+");
-    if(std::regex_match(codigo, padrao) && codigo.length() == 5){
-        this->codigo = codigo;
-    } else {
-        std::cout << "Codigo de Reserva inválido!!!" << std::endl;
+    if(!std::regex_match(codigo, padrao) || codigo.length() != 5){
+        throw invalid_argument("Codigo de Reserva Inválido");
     }
 }
 
@@ -149,6 +166,56 @@ void Cidade::alterar_nome_cidade(std::string nome){
 
 Cidade::Cidade(){
     this->set_nome_cidade("");
+}
+
+////////////////////////////////////////////////////// CPF
+
+
+void Cpf::valida_cpf(std::string cpf){
+    bool valido{true};
+    int cpf_numerico[11]{0};
+    if(cpf.length() != 14 || cpf[3] != '.' || cpf[7] != '.' || cpf[11] != '-'){
+        valido = false;
+    }
+    if(valido){
+        for(int i{0}, j{0}; i < 14; i++, j++) {
+            if(i == 3 || i == 7 || i == 11)
+                i++;
+            cpf_numerico[j] = (int)cpf[i] - 48;
+        }
+        int soma{0};
+        for(int i{0}, j{10}; i < 9; i++, j--){
+            soma += cpf_numerico[i]*j;
+        }
+        if((soma*10)%11 != cpf_numerico[9]){
+            valido = false;
+        }
+        soma = 0;
+        for(int i{0}, j{11}; i < 10; i++, j--){
+            soma += cpf_numerico[i]*j;
+        }
+        if((soma*10)%11 != cpf_numerico[10]){
+            valido = false;
+        }
+    }
+    if(!valido){
+        throw invalid_argument("CPF Inválido!");
+    };
+}
+
+
+void Cpf::set_cpf(std::string cpf){
+    valida_cpf(cpf);
+    this->cpf = cpf;
+
+}
+
+std::string Cpf::get_cpf(){
+    return this->cpf;
+}
+
+Cpf::Cpf(std::string cpf){
+    set_cpf(cpf);
 }
 
 //////////////////////////////////////////////////////

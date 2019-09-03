@@ -16,6 +16,7 @@ private:
     void set_tipo_de_assento(char tipo);
     char get_tipo_de_assento();
     char tipo_de_assento;
+    void valida(char tipo);
 public:
     Assento(char tipo);
 
@@ -25,6 +26,7 @@ class Bagagem{
 private:
     int numero_de_bagagem;
     void set_numero_de_bagagem(int num);
+    void valida(int num);
     int get_numero_de_bagagem();
 public:
     Bagagem(int num);
@@ -32,6 +34,7 @@ public:
 
 class Codigo_de_Banco{
 private:
+    void valida(std::string codigo);
     std::string codigo;
     void set_codigo(std::string codigo);
     std::string get_codigo();
@@ -42,6 +45,7 @@ public:
 
 class Codigo_de_Carona{
 private:
+    void valida(std::string codigo);
     std::string codigo;
     void set_codigo(std::string codigo);
     std::string get_codigo();
@@ -52,6 +56,7 @@ public:
 
 class Codigo_de_Reserva{
 private:
+    void valida(std::string codigo);
     std::string codigo;
     void set_codigo(std::string codigo);
     std::string get_codigo();
@@ -59,6 +64,7 @@ private:
 public:
     Codigo_de_Reserva(std::string codigo);
 };
+
 
 class Cidade{
 private:
@@ -70,6 +76,27 @@ public:
     string get_nome_cidade();
     void cadastrar_nome_cidade(string nome);
     void alterar_nome_cidade(string nome);
+};
+
+class Cpf{
+private:
+    std::string cpf;
+    void valida_cpf(std::string cpf);
+    void set_cpf(std::string cpf);
+    std::string get_cpf();
+public:
+    Cpf(std::string cpf);
+};
+
+class Data{
+private:
+    std::string data;
+    void set_data(std::string data);
+    bool valida_data(std::string data);
+    std::string get_data();
+public:
+    Data(std::string data);
+
 };
 
 #endif
