@@ -2,6 +2,7 @@
 #include <cctype>
 #include <string>
 #include <ctype.h>
+#include <regex>
 #include "dominio.hpp"
 
 using namespace std;
@@ -44,11 +45,66 @@ Bagagem::Bagagem(int num) {
     set_numero_de_bagagem(num);
 }
 
+////////////////////////////////////////////////////// Codigo de Banco
+
+void Codigo_de_Banco::set_codigo(std::string codigo) {
+    std::regex padrao("[0-9]+");
+    if(std::regex_match(codigo, padrao) && codigo.length() == 3){
+        this->codigo = codigo;
+    } else {
+        std::cout << "Codigo de Banco inválido!!!" << std::endl;
+    }
+}
+
+std::string Codigo_de_Banco::get_codigo() {
+    return this->codigo;
+}
+
+Codigo_de_Banco::Codigo_de_Banco(std::string codigo) {
+    set_codigo(codigo);
+}
+
+////////////////////////////////////////////////////// Codigo de Carona
+
+void Codigo_de_Carona::set_codigo(std::string codigo) {
+    std::regex padrao("[0-9]+");
+    if(std::regex_match(codigo, padrao) && codigo.length() == 4){
+        this->codigo = codigo;
+    } else {
+        std::cout << "Codigo de Carona inválido!!!" << std::endl;
+    }
+}
+
+std::string Codigo_de_Carona::get_codigo() {
+    return this->codigo;
+}
+
+Codigo_de_Carona::Codigo_de_Carona(std::string codigo) {
+    set_codigo(codigo);
+}
+
+////////////////////////////////////////////////////// Codigo de Reserva
+
+void Codigo_de_Reserva::set_codigo(std::string codigo) {
+    std::regex padrao("[0-9]+");
+    if(std::regex_match(codigo, padrao) && codigo.length() == 5){
+        this->codigo = codigo;
+    } else {
+        std::cout << "Codigo de Reserva inválido!!!" << std::endl;
+    }
+}
+
+std::string Codigo_de_Reserva::get_codigo() {
+    return this->codigo;
+}
+
+Codigo_de_Reserva::Codigo_de_Reserva(std::string codigo) {
+    set_codigo(codigo);
+}
+
 ////////////////////////////////////////////////////// Cidade
 
-// Implementar construtor de forma a apenas criar objetos com nome valido.
-
-void Cidade::set_nome_cidade(string nome){
+void Cidade::set_nome_cidade(std::string nome){
     this->nome_cidade = nome;
 }
 
@@ -76,7 +132,7 @@ bool Cidade::validar_nome_cidade(string nome){
     return false;
 }
 
-void Cidade::cadastrar_nome_cidade(string nome){
+void Cidade::cadastrar_nome_cidade(std::string nome){
     if(get_nome_cidade() != ""){
         cout << "Nome já cadastrado.\n";
     }else{
@@ -89,7 +145,7 @@ void Cidade::cadastrar_nome_cidade(string nome){
     }
 }
 
-void Cidade::alterar_nome_cidade(string nome){
+void Cidade::alterar_nome_cidade(std::string nome){
     if(get_nome_cidade() == ""){
         cout << "Nome ainda não foi cadastrado.\n";
     }else{
