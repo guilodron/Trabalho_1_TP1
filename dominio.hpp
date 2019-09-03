@@ -92,9 +92,14 @@ class Data{
 private:
     std::string data;
     void set_data(std::string data);
-    bool valida_data(std::string data);
+    void valida_data(std::string data);
     std::string get_data();
+    bool valida_dia(std::string data);
+    bool valida_mes(std::string data);
+    bool valida_ano(std::string data);
+    bool ano_bissexto(std::string data);
 public:
+
     Data(std::string data);
 
 };

@@ -229,13 +229,108 @@ Cpf::Cpf(std::string cpf){
     set_cpf(cpf);
 }
 
-//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////Data
+
+void Data::set_data(std::string data){
+    valida_data(data);
+    this->data = data;
+}
+
+std::string Data::get_data(){
+    return this->data;
+}
+
+void Data::valida_data(std::string data){
+    bool valido = true;
+    regex padrao("[0-9, /]+");
+    if(data.length() != 10 || data[2] != '/' || data[5] != '/' || !std::regex_match(data, padrao)){
+        valido = false;
+    }
+    if(valido){
+        if(!valida_ano(data) || !valida_mes(data) || !valida_dia(data))
+            valido = false;
+    }
+
+    if(!valido){
+        throw invalid_argument("Data Inválida!!");
+    }
+}
+
+bool Data::ano_bissexto(std::string data){
+    int ano = stoi(data.substr(6, 4));
+    if (ano%4 == 0){
+        if(ano % 100 == 0){
+            if (ano % 400 == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return true;
+        }
+    }else {
+        return false;
+    }
+}
+
+bool Data::valida_ano(std::string data){
+    int ano = stoi(data.substr(6, 4));
+    //cout << "ano na funcao" <<ano;
+    if (ano >= 2000 && ano < 2099){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+bool Data::valida_mes(std::string data){
+    if(stoi(data.substr(3, 2)) < 13 && stoi(data.substr(3, 2)) > 0){
+        return true;
+    }else
+        return false;
+}
+
+bool Data::valida_dia(std::string data){
+    int mes = stoi(data.substr(3,2));
+    int dia = stoi(data.substr(0,2));
+    if(mes < 8) {
+        if(mes == 2){
+            if(ano_bissexto(data)){
+                if(dia > 29 || dia < 0){
+                    return false;
+                }
+            }else{
+                if(dia >28 || dia < 0){
+                    return false;
+                }
+            }
+        }
+        else if(mes%2 == 0){
+            if(dia > 30 || dia < 0)
+                    return false;
+        }else
+            if(dia > 31 || dia < 0)
+                return false;
+    }else{
+        if(mes%2 == 0){
+            if(dia > 31 || dia < 0)
+                return false;
+        }else
+            if(dia > 30 || dia < 0)
+                return false;
+    }
+    return true;
+}
+
+Data::Data(std::string data){
+    set_data(data);
+}
 
 //Teste.
-int main(){
+/*int main(){
     string c;
     getline(cin, c);
     Cidade cidade1;
     cidade1.cadastrar_nome_cidade(c);
     return 0;
-}
+}*/
