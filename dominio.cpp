@@ -326,6 +326,27 @@ Data::Data(std::string data){
     set_data(data);
 }
 
+//////////////////////////////////////////////////////Duracao
+
+int Duracao::get_duracao(){
+    return this->duracao;
+}
+
+void Duracao::set_duracao(int duracao){
+    valida_duracao(duracao);
+    this->duracao = duracao;
+}
+
+void Duracao::valida_duracao(int duracao){
+    if(duracao < 1 || duracao > 48){
+        throw invalid_argument("Duração Inválida!!");
+    }
+}
+
+Duracao::Duracao(int duracao){
+    set_duracao(duracao);
+}
+
 //Teste.
 /*int main(){
     string c;

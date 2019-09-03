@@ -104,4 +104,14 @@ public:
 
 };
 
+class Duracao{
+private:
+    int duracao;
+    void set_duracao(int duracao);
+    void valida_duracao(int duracao);
+    int get_duracao();
+public:
+    Duracao(int duracao);
+};
+
 #endif
