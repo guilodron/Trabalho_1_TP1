@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cctype>
+#include <string>
+#include <ctype.h>
 #include <regex>
 #include <stdlib.h>
 #include <exception>
@@ -117,10 +119,7 @@ Codigo_de_Reserva::Codigo_de_Reserva(std::string codigo) {
     set_codigo(codigo);
 }
 
-
 ////////////////////////////////////////////////////// Cidade
-
-// Implementar construtor de forma a apenas criar objetos com nome valido.
 
 void Cidade::set_nome_cidade(std::string nome){
     this->nome_cidade = nome;
@@ -130,12 +129,24 @@ string Cidade::get_nome_cidade(){
     return this->nome_cidade;
 }
 
-bool Cidade::validar_nome_cidade(std::string nome){
+bool Cidade::validar_nome_cidade(string nome){
+    // Verifica tamanho.
     if (nome.length() < 1 || nome.length() > 10){
         return false;
     }
-    return true;
-
+    // Verifica se tem apenas caracteres validos, sem espaços seguidos e sem letra antes de ponto.
+    for(int i = 0; i < nome.length(); i++){
+        if(!(isalpha(nome[i]) || nome[i] == ' ' || nome[i] == '.')||(i && ((nome[i] == ' ' && nome[i-1] == ' ')||(nome[i] == '.' && !isalpha(nome[i]))))){
+            return false;
+        }
+    }
+    // Verifica se ha ao menos uma letra.
+    for(int i = 0; i < nome.length(); i++){
+        if(isalpha(nome[i])){
+            return true;
+        }
+    }
+    return false;
 }
 
 void Cidade::cadastrar_nome_cidade(std::string nome){
@@ -219,3 +230,12 @@ Cpf::Cpf(std::string cpf){
 }
 
 //////////////////////////////////////////////////////
+
+//Teste.
+int main(){
+    string c;
+    getline(cin, c);
+    Cidade cidade1;
+    cidade1.cadastrar_nome_cidade(c);
+    return 0;
+}
