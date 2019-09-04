@@ -371,6 +371,40 @@ Estado::Estado(std::string estado){
     set_estado(estado);
 }
 
+//////////////////////////////////////////////////////Nome
+
+void Nome::valida_nome(std::string nome){
+    bool possui_alfabetico{false};
+    if(nome.length() >= 1 && nome.length() <= 20 && nome.find("  ") == string::npos && nome[0] != '.'){
+        for(size_t i{1}; i < nome.length(); i++){
+            if(isalpha(nome[i])){
+                possui_alfabetico = true;
+            }
+            else if(nome[i] == '.'){
+                if(!isalpha(nome[i-1]))
+                    throw invalid_argument("Nome Inválido!");
+            }
+        }
+    }else{
+        throw invalid_argument("Nome Inválido!");
+    }
+    if(!possui_alfabetico){
+        throw invalid_argument("Nome Inválido!");
+    }
+}
+
+void Nome::set_nome(std::string nome){
+    valida_nome(nome);
+    this->nome = nome;
+}
+
+std::string Nome::get_nome(){
+    return this->nome;
+}
+
+Nome::Nome(std::string nome){
+    set_nome(nome);
+}
 //Teste.
 /*int main(){
     string c;

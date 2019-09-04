@@ -27,9 +27,9 @@ private:
     int numero_de_bagagem;
     void set_numero_de_bagagem(int num);
     void valida(int num);
-    int get_numero_de_bagagem();
 public:
     Bagagem(int num);
+    int get_numero_de_bagagem();
 };
 
 class Codigo_de_Banco{
@@ -122,6 +122,16 @@ private:
 public:
     std::string get_estado();
     Estado(std::string estado);
+};
+
+class Nome{
+private:
+    std::string nome;
+    void valida_nome(std::string nome);
+    void set_nome(std::string nome);
+public:
+    std::string get_nome();
+    Nome(std::string nome);
 };
 
 #endif
