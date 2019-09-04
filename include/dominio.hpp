@@ -144,4 +144,25 @@ public:
     Numero_de_Agencia(std::string numero_de_agencia);
 };
 
+class Numero_de_Conta {
+private:
+	std::string numero_de_conta;
+	void valida_numero_de_conta(std::string numero_de_conta);
+	void set_numero_de_conta(std::string numero_de_conta);
+public:
+	std::string get_numero_de_conta();
+	Numero_de_Conta(std::string numero_de_conta);
+};
+
+class Preco {
+private:
+	float preco;
+	void valida_preco(float preco);
+	float formata_preco(float preco);
+	void set_preco(float preco);
+public:
+	float get_preco();
+	Preco(float preco);
+};
+
 #endif

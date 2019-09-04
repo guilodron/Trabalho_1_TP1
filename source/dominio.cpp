@@ -427,7 +427,10 @@ void Numero_de_Agencia::valida_numero_de_agencia(std::string numero_de_agencia){
         if((soma*9)%10 != numero_de_agencia[5] - 48){
             throw std::invalid_argument("Número De Agência Inválido!!");
         }
-    }
+	}
+	else {
+		throw std::invalid_argument("Número De Agência Inválido!!");
+	}
 
 }
 
@@ -443,12 +446,94 @@ std::string Numero_de_Agencia::get_numero_de_agencia(){
 Numero_de_Agencia::Numero_de_Agencia(std::string numero_de_agencia){
     set_numero_de_agencia(numero_de_agencia);
 }
-//Teste.
-/*int main(){
-    string c;
-    getline(cin, c);
-    Cidade cidade1;
-    cidade1.cadastrar_nome_cidade(c);
 
-    return 0;
+//////////////////////////////////////////////////////Numero de Conta
+
+void Numero_de_Conta::valida_numero_de_conta(std::string numero_de_conta)
+{
+	int soma{ 0 };
+	if (numero_de_conta.length() == 8 && numero_de_conta[6] == '-') {
+		for (int i{ 0 }; i < 6; i++) {
+			if (i % 2 != 0) {
+				int duplicado = int(numero_de_conta[i] - 48) * 2;
+				if (duplicado >= 10) {
+					soma += duplicado - 9;
+				}
+				else {
+					soma += duplicado;
+				}
+			}
+			else {
+				soma += int(numero_de_conta[i] - 48);
+			}
+
+		}
+		if ((soma * 9) % 10 != numero_de_conta[7] - 48) {
+			throw std::invalid_argument("Número De Conta Inválido!!");
+		}
+	}
+	else {
+		throw std::invalid_argument("Número De Conta Inválido!!");
+	}
+}
+
+void Numero_de_Conta::set_numero_de_conta(std::string numero_de_conta)
+{
+	valida_numero_de_conta(numero_de_conta);
+	this->numero_de_conta = numero_de_conta;
+}
+
+std::string Numero_de_Conta::get_numero_de_conta()
+{
+	return this->numero_de_conta;
+}
+
+Numero_de_Conta::Numero_de_Conta(std::string numero_de_conta)
+{
+	set_numero_de_conta(numero_de_conta);
+}
+
+//////////////////////////////////////////////////////Preco
+
+void Preco::valida_preco(float preco)
+{
+	preco = formata_preco(preco);
+	if (preco > 5000.00 || preco < 1.00) {
+		throw std::invalid_argument("Preço Inválido!!");
+	}
+}
+
+float Preco::formata_preco(float preco)
+{
+
+	int aux = (int)(preco * 100);
+	preco = ((float)aux) / 100;
+	return preco;
+}
+
+void Preco::set_preco(float preco)
+{
+	valida_preco(preco);
+	this->preco = formata_preco(preco);
+}
+
+float Preco::get_preco()
+{
+	return this->preco;
+}
+
+Preco::Preco(float preco)
+{
+	set_preco(preco);
+}
+//Teste.
+/*int main() {
+	string c;
+	getline(cin, c);
+	Cidade cidade1;
+	cidade1.cadastrar_nome_cidade(c);
+
+	return 0;
 }*/
+
+
