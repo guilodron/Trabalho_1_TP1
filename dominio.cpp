@@ -347,6 +347,30 @@ Duracao::Duracao(int duracao){
     set_duracao(duracao);
 }
 
+//////////////////////////////////////////////////////Estado
+
+void Estado::set_estado(std::string estado){
+    valida_estado(estado);
+    this->estado = estado;
+}
+
+void Estado::valida_estado(std::string estado){
+    string estados("AC-AL-AP-AM-BA-CE-DF-ES-GO-MA-MT-MS-MG-PA-PB-PR-PE-PI-RJ-RN-RS-RO-RR-SC-SP-SE-TO");
+    if(estados.find(estado)!= string::npos && estado.find('-') == string::npos && estado.length() == 2){
+        this->estado = estado;
+    }else{
+        throw invalid_argument("Sigla de Estado Inválida!!!");
+    }
+}
+
+std::string Estado::get_estado(){
+    return this->estado;
+}
+
+Estado::Estado(std::string estado){
+    set_estado(estado);
+}
+
 //Teste.
 /*int main(){
     string c;

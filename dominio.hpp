@@ -114,4 +114,14 @@ public:
     Duracao(int duracao);
 };
 
+class Estado{
+private:
+    std::string estado;
+    void set_estado(std::string estado);
+    void valida_estado(std::string estado);
+public:
+    std::string get_estado();
+    Estado(std::string estado);
+};
+
 #endif
