@@ -405,6 +405,44 @@ std::string Nome::get_nome(){
 Nome::Nome(std::string nome){
     set_nome(nome);
 }
+
+//////////////////////////////////////////////////////Numero de Agencia
+
+void Numero_de_Agencia::valida_numero_de_agencia(std::string numero_de_agencia){
+    int soma{0};
+    if(numero_de_agencia.length() == 6 && numero_de_agencia[4] == '-'){
+        for(int i{0}; i < 4 ;i++){
+            if(i%2 != 0 ){
+                int duplicado = int(numero_de_agencia[i] - 48)*2;
+                if(duplicado >= 10){
+                    soma += duplicado-9;
+                }else{
+                    soma += duplicado;
+                }
+            }else{
+                soma +=int(numero_de_agencia[i] - 48);
+            }
+
+        }
+        if((soma*9)%10 != numero_de_agencia[5] - 48){
+            throw std::invalid_argument("Número De Agência Inválido!!");
+        }
+    }
+
+}
+
+void Numero_de_Agencia::set_numero_de_agencia(std::string numero_de_agencia){
+    valida_numero_de_agencia(numero_de_agencia);
+    this->numero_de_agencia = numero_de_agencia;
+}
+
+std::string Numero_de_Agencia::get_numero_de_agencia(){
+    return this->numero_de_agencia;
+}
+
+Numero_de_Agencia::Numero_de_Agencia(std::string numero_de_agencia){
+    set_numero_de_agencia(numero_de_agencia);
+}
 //Teste.
 /*int main(){
     string c;

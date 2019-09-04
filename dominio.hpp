@@ -134,4 +134,14 @@ public:
     Nome(std::string nome);
 };
 
+class Numero_de_Agencia{
+private:
+    std::string numero_de_agencia;
+    void valida_numero_de_agencia(std::string numero_de_agencia);
+    void set_numero_de_agencia(std::string numero_de_agencia);
+public:
+    std::string get_numero_de_agencia();
+    Numero_de_Agencia(std::string numero_de_agencia);
+};
+
 #endif
