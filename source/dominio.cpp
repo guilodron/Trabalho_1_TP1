@@ -556,13 +556,8 @@ Vagas::Vagas(int vagas){
 }
 
 //Teste.
-/*int main() {
-	string c;
-	getline(cin, c);
-	Cidade cidade1;
-	cidade1.cadastrar_nome_cidade(c);
-
-	return 0;
-}*/
-
-
+// int main() {
+//     Vagas vagas1(5);
+//     cout << vagas1.get_vagas();
+// 	return 0;
+// }

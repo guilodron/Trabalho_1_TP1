@@ -183,6 +183,6 @@ private:
 public:
     int get_vagas();
     Vagas(int vagas);
-}
+};
 
 #endif
