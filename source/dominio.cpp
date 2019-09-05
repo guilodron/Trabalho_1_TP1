@@ -134,7 +134,7 @@ bool Cidade::validar_nome_cidade(string nome){
     if (nome.length() < 1 || nome.length() > 10){
         return false;
     }
-    // Verifica se tem apenas caracteres validos, sem espaços seguidos e sem letra antes de ponto.
+    // Verifica se tem apenas caracteres validos, sem espaços seguidos e com letra antes de ponto.
     for(int i = 0; i < nome.length(); i++){
         if(!(isalpha(nome[i]) || nome[i] == ' ' || nome[i] == '.')||(i && ((nome[i] == ' ' && nome[i-1] == ' ')||(nome[i] == '.' && !isalpha(nome[i]))))){
             return false;
@@ -371,6 +371,10 @@ Estado::Estado(std::string estado){
     set_estado(estado);
 }
 
+//////////////////////////////////////////////////////Email
+
+
+
 //////////////////////////////////////////////////////Nome
 
 void Nome::valida_nome(std::string nome){
@@ -526,6 +530,31 @@ Preco::Preco(float preco)
 {
 	set_preco(preco);
 }
+
+//////////////////////////////////////////////////////Telefone
+
+//////////////////////////////////////////////////////Senha
+
+//////////////////////////////////////////////////////Vagas
+void Vagas::valida_vagas(int vagas){
+    	if (vagas > 4 || vagas < 0) {
+		throw invalid_argument("Número de vagas inválido!!");
+	}
+}
+
+void Vagas::set_vagas(int vagas){
+    valida_vagas(vagas);
+    this->vagas = vagas;
+}
+
+int Vagas::get_vagas(){
+    return this->vagas;
+}
+
+Vagas::Vagas(int vagas){
+    set_vagas(vagas);
+}
+
 //Teste.
 /*int main() {
 	string c;

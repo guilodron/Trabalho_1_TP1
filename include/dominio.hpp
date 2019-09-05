@@ -124,6 +124,16 @@ public:
     Estado(std::string estado);
 };
 
+// class Email{
+// private:
+//     string email;
+//     void valida_email(email)
+//     void set_email(string email);
+// public:
+//     string get_email();
+//     Email(string email);
+// };
+
 class Nome{
 private:
     std::string nome;
@@ -164,5 +174,15 @@ public:
 	float get_preco();
 	Preco(float preco);
 };
+
+class Vagas{
+private:
+    int vagas;
+    void valida_vagas(int vagas);
+    void set_vagas(int vagas);
+public:
+    int get_vagas();
+    Vagas(int vagas);
+}
 
 #endif
