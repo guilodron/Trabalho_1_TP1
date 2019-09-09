@@ -560,4 +560,31 @@ Vagas::Vagas(int vagas){
 //     Vagas vagas1(5);
 //     cout << vagas1.get_vagas();
 // 	return 0;
+//	55-61-999717297
 // }
+
+void Telefone::valida_telefone(std::string telefone) {
+	if (telefone.length() == 15 && telefone.substr(0, 2) != "00" && telefone.substr(3, 2) != "00" && telefone.substr(6, 9) != "000000000"
+		&& telefone[2] == '-' && telefone[5] == '-') {
+		std::regex padrao("[0-9, -]+");
+		if (!regex_match(telefone, padrao)) {
+			throw invalid_argument("Telefone Inálido!");
+		}
+	}
+	else {
+		throw invalid_argument("Telefone Inválido!");
+	}
+}
+
+void Telefone::set_telefone(std::string telefone) {
+	valida_telefone(telefone);
+	this->telefone = telefone;
+}
+
+Telefone::Telefone(std::string telefone) {
+	set_telefone(telefone);
+}
+
+std::string Telefone::get_telefone() {
+	return this->telefone;
+}

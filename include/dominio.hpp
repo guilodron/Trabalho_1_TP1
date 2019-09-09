@@ -185,4 +185,14 @@ public:
     Vagas(int vagas);
 };
 
+class Telefone {
+private:
+	std::string telefone;
+	void valida_telefone(std::string telefone);
+	void set_telefone(std::string telefone);
+public:
+	Telefone(std::string telefone);
+	std::string get_telefone();
+};
+
 #endif
