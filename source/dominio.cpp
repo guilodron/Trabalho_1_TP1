@@ -61,7 +61,7 @@ void Codigo_de_Banco::set_codigo(std::string codigo) {
 void Codigo_de_Banco::valida(std::string codigo){
     std::regex padrao("[0-9]+");
     if(!std::regex_match(codigo, padrao) || codigo.length() != 3){
-        throw invalid_argument("Codigo de Banco Inválido");
+        throw std::invalid_argument("Codigo de Banco Inválido");
     }
 }
 
@@ -83,7 +83,7 @@ void Codigo_de_Carona::set_codigo(std::string codigo) {
 void Codigo_de_Carona::valida(std::string codigo){
     std::regex padrao("[0-9]+");
     if(!std::regex_match(codigo, padrao) || codigo.length() != 4){
-        throw invalid_argument("Codigo de Carona Inválido");
+        throw std::invalid_argument("Codigo de Carona Inválido");
     }
 }
 
@@ -105,7 +105,7 @@ void Codigo_de_Reserva::set_codigo(std::string codigo) {
 void Codigo_de_Reserva::valida(std::string codigo){
     std::regex padrao("[0-9]+");
     if(!std::regex_match(codigo, padrao) || codigo.length() != 5){
-        throw invalid_argument("Codigo de Reserva Inválido");
+        throw std::invalid_argument("Codigo de Reserva Inválido");
     }
 }
 
@@ -123,11 +123,11 @@ void Cidade::set_nome_cidade(std::string nome){
     this->nome_cidade = nome;
 }
 
-string Cidade::get_nome_cidade(){
+std::string Cidade::get_nome_cidade(){
     return this->nome_cidade;
 }
 
-bool Cidade::validar_nome_cidade(string nome){
+bool Cidade::validar_nome_cidade(std::string nome){
     // Verifica tamanho.
     if (nome.length() < 1 || nome.length() > 10){
         return false;
@@ -149,26 +149,26 @@ bool Cidade::validar_nome_cidade(string nome){
 
 void Cidade::cadastrar_nome_cidade(std::string nome){
     if(get_nome_cidade() != ""){
-        cout << "Nome já cadastrado.\n";
+        std::cout << "Nome já cadastrado.\n";
     }else{
         if(validar_nome_cidade(nome)){
             set_nome_cidade(nome);
-            cout << "Nome cadastrado.\n";
+            std::cout << "Nome cadastrado.\n";
         }else{
-            cout << "Nome inválido.\n";
+            std::cout << "Nome inválido.\n";
         }
     }
 }
 
 void Cidade::alterar_nome_cidade(std::string nome){
     if(get_nome_cidade() == ""){
-        cout << "Nome ainda não foi cadastrado.\n";
+        std::cout << "Nome ainda não foi cadastrado.\n";
     }else{
         if(validar_nome_cidade(nome)){
             set_nome_cidade(nome);
-            cout << "Nome alterado.\n";
+            std::cout << "Nome alterado.\n";
         }else{
-            cout << "Nome inválido.\n";
+            std::cout << "Nome inválido.\n";
         }
     }
 }
@@ -207,7 +207,7 @@ void Cpf::valida_cpf(std::string cpf){
         }
     }
     if(!valido){
-        throw invalid_argument("CPF Inválido!");
+        throw std::invalid_argument("CPF Inválido!");
     };
 }
 
@@ -239,7 +239,7 @@ std::string Data::get_data(){
 
 void Data::valida_data(std::string data){
     bool valido = true;
-    regex padrao("[0-9, /]+");
+    std::regex padrao("[0-9, /]+");
     if(data.length() != 10 || data[2] != '/' || data[5] != '/' || !std::regex_match(data, padrao)){
         valido = false;
     }
@@ -249,7 +249,7 @@ void Data::valida_data(std::string data){
     }
 
     if(!valido){
-        throw invalid_argument("Data Inválida!!");
+        throw std::invalid_argument("Data Inválida!!");
     }
 }
 
@@ -336,7 +336,7 @@ void Duracao::set_duracao(int duracao){
 
 void Duracao::valida_duracao(int duracao){
     if(duracao < 1 || duracao > 48){
-        throw invalid_argument("Duração Inválida!!");
+        throw std::invalid_argument("Duração Inválida!!");
     }
 }
 
@@ -352,11 +352,11 @@ void Estado::set_estado(std::string estado){
 }
 
 void Estado::valida_estado(std::string estado){
-    string estados("AC-AL-AP-AM-BA-CE-DF-ES-GO-MA-MT-MS-MG-PA-PB-PR-PE-PI-RJ-RN-RS-RO-RR-SC-SP-SE-TO");
-    if(estados.find(estado)!= string::npos && estado.find('-') == string::npos && estado.length() == 2){
+    std::string estados("AC-AL-AP-AM-BA-CE-DF-ES-GO-MA-MT-MS-MG-PA-PB-PR-PE-PI-RJ-RN-RS-RO-RR-SC-SP-SE-TO");
+    if(estados.find(estado)!= std::string::npos && estado.find('-') == std::string::npos && estado.length() == 2){
         this->estado = estado;
     }else{
-        throw invalid_argument("Sigla de Estado Inválida!!!");
+        throw std::invalid_argument("Sigla de Estado Inválida!!!");
     }
 }
 
@@ -370,8 +370,8 @@ Estado::Estado(std::string estado){
 
 //////////////////////////////////////////////////////Email
 
-void Senha::valida_email(std::string email){ // TERMINAR.
-    return 0;
+void Email::valida_email(std::string email){ // TERMINAR.
+
 }
 
 void Email::set_email(std::string email){
@@ -391,21 +391,21 @@ std::string Email::get_email(){
 
 void Nome::valida_nome(std::string nome){
     bool possui_alfabetico{false};
-    if(nome.length() >= 1 && nome.length() <= 20 && nome.find("  ") == string::npos && nome[0] != '.'){
+    if(nome.length() >= 1 && nome.length() <= 20 && nome.find("  ") == std::string::npos && nome[0] != '.'){
         for(size_t i{1}; i < nome.length(); i++){
             if(isalpha(nome[i])){
                 possui_alfabetico = true;
             }
             else if(nome[i] == '.'){
                 if(!isalpha(nome[i-1]))
-                    throw invalid_argument("Nome Inválido!");
+                    throw std::invalid_argument("Nome Inválido!");
             }
         }
     }else{
-        throw invalid_argument("Nome Inválido!");
+        throw std::invalid_argument("Nome Inválido!");
     }
     if(!possui_alfabetico){
-        throw invalid_argument("Nome Inválido!");
+        throw std::invalid_argument("Nome Inválido!");
     }
 }
 
@@ -550,11 +550,11 @@ void Telefone::valida_telefone(std::string telefone) {
 		&& telefone[2] == '-' && telefone[5] == '-') {
 		std::regex padrao("[0-9, -]+");
 		if (!regex_match(telefone, padrao)) {
-			throw invalid_argument("Telefone Inálido!");
+			throw std::invalid_argument("Telefone Inálido!");
 		}
 	}
 	else {
-		throw invalid_argument("Telefone Inválido!");
+		throw std::invalid_argument("Telefone Inválido!");
 	}
 }
 
@@ -574,7 +574,7 @@ std::string Telefone::get_telefone() {
 //////////////////////////////////////////////////////Senha
 
 void Senha::valida_senha(std::string senha){ // TERMINAR.
-    return 0;
+ 
 }
 
 void Senha::set_senha(std::string senha){
@@ -594,7 +594,7 @@ std::string Senha::get_senha(){
 
 void Vagas::valida_vagas(int vagas){
     	if (vagas > 4 || vagas < 0) {
-		throw invalid_argument("Número de vagas inválido!!");
+		throw std::invalid_argument("Número de vagas inválido!!");
 	}
 }
 

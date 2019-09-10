@@ -60,14 +60,14 @@ public:
 
 class Cidade{
 private:
-    string nome_cidade;
-    void set_nome_cidade(string nome);
-    bool validar_nome_cidade(string nome);
+    std::string nome_cidade;
+    void set_nome_cidade(std::string nome);
+    bool validar_nome_cidade(std::string nome);
 public:
     Cidade();
-    string get_nome_cidade();
-    void cadastrar_nome_cidade(string nome);
-    void alterar_nome_cidade(string nome);
+    std::string get_nome_cidade();
+    void cadastrar_nome_cidade(std::string nome);
+    void alterar_nome_cidade(std::string nome);
 };
 
 class Cpf{
@@ -118,12 +118,12 @@ public:
 
 class Email{
 private:
-    string email;
-    void valida_email(email)
-    void set_email(string email);
+    std::string email;
+	void valida_email(std::string email);
+    void set_email(std::string email);
 public:
-    string get_email();
-    Email(string email);
+    std::string get_email();
+    Email(std::string email);
 };
 
 class Nome{
