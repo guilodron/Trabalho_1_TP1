@@ -179,7 +179,6 @@ Cidade::Cidade(){
 
 ////////////////////////////////////////////////////// CPF
 
-
 void Cpf::valida_cpf(std::string cpf){
     bool valido{true};
     int cpf_numerico[11]{0};
@@ -370,6 +369,7 @@ Estado::Estado(std::string estado){
 }
 
 //////////////////////////////////////////////////////Email
+
 void Senha::valida_email(std::string email){ // TERMINAR.
     return 0;
 }
@@ -544,6 +544,7 @@ Preco::Preco(float preco)
 }
 
 //////////////////////////////////////////////////////Telefone
+
 void Telefone::valida_telefone(std::string telefone) {
 	if (telefone.length() == 15 && telefone.substr(0, 2) != "00" && telefone.substr(3, 2) != "00" && telefone.substr(6, 9) != "000000000"
 		&& telefone[2] == '-' && telefone[5] == '-') {
@@ -571,6 +572,7 @@ std::string Telefone::get_telefone() {
 }
 
 //////////////////////////////////////////////////////Senha
+
 void Senha::valida_senha(std::string senha){ // TERMINAR.
     return 0;
 }
@@ -589,6 +591,7 @@ std::string Senha::get_senha(){
 }
 
 //////////////////////////////////////////////////////Vagas
+
 void Vagas::valida_vagas(int vagas){
     	if (vagas > 4 || vagas < 0) {
 		throw invalid_argument("Número de vagas inválido!!");
