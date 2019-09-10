@@ -531,8 +531,6 @@ Preco::Preco(float preco)
 	set_preco(preco);
 }
 
-//////////////////////////////////////////////////////Telefone
-
 //////////////////////////////////////////////////////Senha
 
 //////////////////////////////////////////////////////Vagas
@@ -562,6 +560,8 @@ Vagas::Vagas(int vagas){
 // 	return 0;
 //	55-61-999717297
 // }
+
+//////////////////////////////////////////////////////Telefone
 
 void Telefone::valida_telefone(std::string telefone) {
 	if (telefone.length() == 15 && telefone.substr(0, 2) != "00" && telefone.substr(3, 2) != "00" && telefone.substr(6, 9) != "000000000"

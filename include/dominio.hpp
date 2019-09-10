@@ -14,10 +14,11 @@ using namespace std;
 class Assento{
 private:
     void set_tipo_de_assento(char tipo);
-    char get_tipo_de_assento();
+
     char tipo_de_assento;
     void valida(char tipo);
 public:
+	char get_tipo_de_assento();
     Assento(char tipo);
 
 };
