@@ -3,14 +3,6 @@
 
 #include <string>
 
-using namespace std;
-
-//////////////////////////////////////////
-//  Dominio Assento: recebe um char     //
-//  indicando o tipo de assento, sendo  //
-//  T = traseiro ou D = dianteiro       //
-//////////////////////////////////////////
-
 class Assento{
 private:
     void set_tipo_de_assento(char tipo);
@@ -124,15 +116,15 @@ public:
     Estado(std::string estado);
 };
 
-// class Email{
-// private:
-//     string email;
-//     void valida_email(email)
-//     void set_email(string email);
-// public:
-//     string get_email();
-//     Email(string email);
-// };
+class Email{
+private:
+    string email;
+    void valida_email(email)
+    void set_email(string email);
+public:
+    string get_email();
+    Email(string email);
+};
 
 class Nome{
 private:
@@ -175,16 +167,6 @@ public:
 	Preco(float preco);
 };
 
-class Vagas{
-private:
-    int vagas;
-    void valida_vagas(int vagas);
-    void set_vagas(int vagas);
-public:
-    int get_vagas();
-    Vagas(int vagas);
-};
-
 class Telefone {
 private:
 	std::string telefone;
@@ -193,6 +175,26 @@ private:
 public:
 	Telefone(std::string telefone);
 	std::string get_telefone();
+};
+
+class Senha{
+private:
+	std::string senha;
+	void valida_senha(std::string senha);
+	void set_senha(std::string senha);
+public:
+	Senha(std::string senha);
+	std::string get_senha();
+};
+
+class Vagas{
+private:
+    int vagas;
+    void valida_vagas(int vagas);
+    void set_vagas(int vagas);
+public:
+    int get_vagas();
+    Vagas(int vagas);
 };
 
 #endif

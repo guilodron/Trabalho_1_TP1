@@ -7,8 +7,6 @@
 #include <exception>
 #include "../include/dominio.hpp"
 
-using namespace std;
-
 //////////////////////////////////////////////////////// Assento
 
 Assento::Assento(char tipo){
@@ -372,8 +370,22 @@ Estado::Estado(std::string estado){
 }
 
 //////////////////////////////////////////////////////Email
+void Senha::valida_email(std::string email){ // TERMINAR.
+    return 0;
+}
 
+void Email::set_email(std::string email){
+    valida_email(email);
+    this->email = email;
+}
 
+Email::Email(std::string email){
+    set_email(email);
+}
+
+std::string Email::get_email(){
+    return this->email;
+}
 
 //////////////////////////////////////////////////////Nome
 
@@ -532,8 +544,49 @@ Preco::Preco(float preco)
 }
 
 //////////////////////////////////////////////////////Telefone
+void Telefone::valida_telefone(std::string telefone) {
+	if (telefone.length() == 15 && telefone.substr(0, 2) != "00" && telefone.substr(3, 2) != "00" && telefone.substr(6, 9) != "000000000"
+		&& telefone[2] == '-' && telefone[5] == '-') {
+		std::regex padrao("[0-9, -]+");
+		if (!regex_match(telefone, padrao)) {
+			throw invalid_argument("Telefone Inálido!");
+		}
+	}
+	else {
+		throw invalid_argument("Telefone Inválido!");
+	}
+}
+
+void Telefone::set_telefone(std::string telefone) {
+	valida_telefone(telefone);
+	this->telefone = telefone;
+}
+
+Telefone::Telefone(std::string telefone) {
+	set_telefone(telefone);
+}
+
+std::string Telefone::get_telefone() {
+	return this->telefone;
+}
 
 //////////////////////////////////////////////////////Senha
+void Senha::valida_senha(std::string senha){ // TERMINAR.
+    return 0;
+}
+
+void Senha::set_senha(std::string senha){
+    valida_senha(senha);
+    this->senha = senha;
+}
+
+Senha::Senha(std::string senha){
+    set_senha(senha);
+}
+
+std::string Senha::get_senha(){
+    return this->senha;
+}
 
 //////////////////////////////////////////////////////Vagas
 void Vagas::valida_vagas(int vagas){
@@ -562,29 +615,3 @@ Vagas::Vagas(int vagas){
 // 	return 0;
 //	55-61-999717297
 // }
-
-void Telefone::valida_telefone(std::string telefone) {
-	if (telefone.length() == 15 && telefone.substr(0, 2) != "00" && telefone.substr(3, 2) != "00" && telefone.substr(6, 9) != "000000000"
-		&& telefone[2] == '-' && telefone[5] == '-') {
-		std::regex padrao("[0-9, -]+");
-		if (!regex_match(telefone, padrao)) {
-			throw invalid_argument("Telefone Inálido!");
-		}
-	}
-	else {
-		throw invalid_argument("Telefone Inválido!");
-	}
-}
-
-void Telefone::set_telefone(std::string telefone) {
-	valida_telefone(telefone);
-	this->telefone = telefone;
-}
-
-Telefone::Telefone(std::string telefone) {
-	set_telefone(telefone);
-}
-
-std::string Telefone::get_telefone() {
-	return this->telefone;
-}
