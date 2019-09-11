@@ -577,8 +577,38 @@ std::string Telefone::get_telefone() {
 
 //////////////////////////////////////////////////////Senha
 
-void Senha::valida_senha(std::string senha){ // TERMINAR.
- 
+void Senha::valida_senha(std::string senha){
+	if (senha.length() == tamanho) {
+		if (checa_repeticao(senha) || possui_invalido(senha)) {
+			throw std::invalid_argument("Senha Inválida!");
+		}
+	}
+	else {
+		throw std::invalid_argument("Senha Inválida!");
+	}
+
+
+}
+
+bool Senha::possui_invalido(std::string senha) {
+	for (int i{ 0 }; i < senha.length(); i++) {
+		if (senha[i] != '#' && senha[i] != '$' && senha[i] != '%' && senha[i] != '&'
+			&& !isalpha(senha[i]) && !isdigit(senha[i])) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+bool Senha::checa_repeticao(std::string senha) {
+	for (int i{0}; i < senha.length(); i++) {
+		for (int j{ 0 }; j < senha.length(); j++) {
+			if (i != j && senha[i] == senha[j]) {
+				return 1;
+			}
+		}
+	}
+	return 0;
 }
 
 void Senha::set_senha(std::string senha){

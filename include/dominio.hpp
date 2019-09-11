@@ -194,6 +194,9 @@ public:
 
 class Senha{
 private:
+	bool possui_invalido(std::string senha);
+	bool checa_repeticao(std::string senha);
+	const int tamanho = 5;
 	std::string senha;
 	void valida_senha(std::string senha);
 	void set_senha(std::string senha);
