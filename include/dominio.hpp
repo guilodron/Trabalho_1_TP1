@@ -16,6 +16,8 @@ public:
 
 class Bagagem{
 private:
+	const int max_bagagem = 4;
+	const int min_bagagem = 1;
     int numero_de_bagagem;
     void set_numero_de_bagagem(int num);
     void valida(int num);
@@ -26,6 +28,7 @@ public:
 
 class Codigo_de_Banco{
 private:
+	const int tamanho = 3;
     void valida(std::string codigo);
     std::string codigo;
     void set_codigo(std::string codigo);
@@ -37,6 +40,7 @@ public:
 
 class Codigo_de_Carona{
 private:
+	const int tamanho = 4;
     void valida(std::string codigo);
     std::string codigo;
     void set_codigo(std::string codigo);
@@ -48,6 +52,7 @@ public:
 
 class Codigo_de_Reserva{
 private:
+	const int tamanho = 5;
     void valida(std::string codigo);
     std::string codigo;
     void set_codigo(std::string codigo);
@@ -82,10 +87,10 @@ public:
 
 class Data{
 private:
+	const int tamanho = 10;
     std::string data;
     void set_data(std::string data);
     void valida_data(std::string data);
-    std::string get_data();
     bool valida_dia(std::string data);
     bool valida_mes(std::string data);
     bool valida_ano(std::string data);
@@ -93,17 +98,20 @@ private:
 public:
 
     Data(std::string data);
+	std::string get_data();
 
 };
 
 class Duracao{
 private:
+	const int duracao_max = 48;
+	const int duracao_min = 1;
     int duracao;
     void set_duracao(int duracao);
     void valida_duracao(int duracao);
-    int get_duracao();
 public:
     Duracao(int duracao);
+	int get_duracao();
 };
 
 class Estado{
@@ -128,6 +136,8 @@ public:
 
 class Nome{
 private:
+	const int tamanho_max = 20;
+	const int tamanho_min = 1;
     std::string nome;
     void valida_nome(std::string nome);
     void set_nome(std::string nome);
@@ -138,6 +148,7 @@ public:
 
 class Numero_de_Agencia{
 private:
+	const int tamanho = 6;
     std::string numero_de_agencia;
     void valida_numero_de_agencia(std::string numero_de_agencia);
     void set_numero_de_agencia(std::string numero_de_agencia);
@@ -148,6 +159,7 @@ public:
 
 class Numero_de_Conta {
 private:
+	const int tamanho = 8;
 	std::string numero_de_conta;
 	void valida_numero_de_conta(std::string numero_de_conta);
 	void set_numero_de_conta(std::string numero_de_conta);
@@ -158,6 +170,8 @@ public:
 
 class Preco {
 private:
+	const float preco_max = 5000.00;
+	const float preco_min = 1.00;
 	float preco;
 	void valida_preco(float preco);
 	float formata_preco(float preco);
@@ -169,6 +183,7 @@ public:
 
 class Telefone {
 private:
+	const int tamanho = 15;
 	std::string telefone;
 	void valida_telefone(std::string telefone);
 	void set_telefone(std::string telefone);
