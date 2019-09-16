@@ -12,44 +12,74 @@
 
 //////////////////////////////////////////////////////// Assento
 
+/// @brief Construtor da classe Assento
+///
+/// Recebe um valor de assento e, caso seja valido
+/// atribui esse valor ao tipo de assento
+/// @param tipo representa o tipo de assento
 Assento::Assento(char tipo) {
     set_tipo_de_assento(tipo);
 }
 
+/// @brief Retorna tipo de assento
 char Assento::get_tipo_de_assento() {
     return this->tipo_de_assento;
 }
 
+
+/// @brief Atribui valor do tipo de assento 
+///
+/// Seta o valor de assento caso seja um valor válido
+/// @param tipo representa o tipo de assento
 void Assento::set_tipo_de_assento(char tipo) {
     valida(tipo);
     this->tipo_de_assento = tipo;
 }
 
-//  Valida se o tipo passado é D ou T
+/// @brief Valida o assento fornecido pelo usuario
+///
+/// Caso receba um valor inválido, lança uma excecao
+/// de invalid_argument
+/// @param tipo representa o tipo de assento
 void Assento::valida(char tipo) {
     tipo = toupper(tipo);
     if (tipo != 'D' && tipo != 'T') {
         throw std::invalid_argument("Tipo de Assento Invalido");
     }
 }
+
 //////////////////////////////////////////////////////// Bagagem
 
+/// @brief Atribui valor do numero de bagagem 
+///
+/// Seta o valor do numero de bagagem, caso seja um valor válido
+/// @param tipo representa o numero de bagagem
 void Bagagem::set_numero_de_bagagem(int num) {
     valida(num);
     this->numero_de_bagagem = num;
 }
 
-//  Valida se o numero passado se encontra entre o maximo e o minimo
+/// @brief Valida o numero de bagaem inserido pelo usuario
+///
+/// Caso receba um valor que nao esteja entre o minimo e o maximo
+/// lanca uma excecao do tipo invalid_argument
+/// @param num representa a quantidade de bagagem
 void Bagagem::valida(int num) {
     if (num <= min_bagagem || num > max_bagagem) {
         throw std::invalid_argument("Numero de Bagagem Inválido!!");
     }
 }
 
+/// @brief Retorna o valor contido em numero de bagagem 
 int Bagagem::get_numero_de_bagagem() {
     return this->numero_de_bagagem;
 }
 
+/// @brief Construtor da classe Bagagem
+///
+/// Recebe um valor de bagagem e, caso seja valido,
+/// atribui esse valor ao numero de bagagem
+/// @param tipo representa a quantidade de bagagem
 Bagagem::Bagagem(int num) {
     set_numero_de_bagagem(num);
 }

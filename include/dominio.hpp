@@ -3,17 +3,24 @@
 
 #include <string>
 
+/// @brief Domínio Assento
+///
+/// Representa o assento e pode receber 2 valores
+/// 'D' ou 'T'
 class Assento{
 private:
-    void set_tipo_de_assento(char tipo);
-    char get_tipo_de_assento();
-    char tipo_de_assento;
+	char tipo_de_assento;
+	void set_tipo_de_assento(char tipo);    
     void valida(char tipo);
 public:
+	char get_tipo_de_assento();
     Assento(char tipo);
-
 };
 
+/// @brief Dominio Bagagem
+///
+/// Representa a bagagem e pode receber valores entre
+/// 1 e 4
 class Bagagem{
 private:
 	const int max_bagagem = 4;
