@@ -404,8 +404,29 @@ Estado::Estado(std::string estado){
 
 //////////////////////////////////////////////////////Email
 
-void Email::valida_email(std::string email){ // TERMINAR.
+/*
+ - 1 a 20 caracteres (letra, ponto ou espaço).
+ - Pelo menos um caracter é letra.
+ - Antes de ponto somente letra.
+ - Sem espaços em sequência.
+*/
 
+void Email::valida_email(std::string email){ // TERMINAR.
+    int cont = 0;
+    if (email.length() < 1 || email.length() > 20)
+        throw std::invalid_argument("Email Inválido!0");
+    for(int i = 0; i < email.length(); i++){
+        if(isalpha(email[i]))
+            cont++;
+        if(!isalpha(email[i]) && email[i] != '.' && email[i] != ' ') // Letras, pontos ou espaços.
+            throw std::invalid_argument("Email Inválido!1");
+        if(i > 0 && email[i] == '.' && !isalpha(email[i-1])) // Letra antes de ponto.
+            throw std::invalid_argument("Email Inválido!2");
+        if(i > 0 && email[i] == ' ' && email[i-1] == ' ') // Sem espaços duplos.
+            throw std::invalid_argument("Email Inválido!3");
+    }
+    if(!cont) // Ao menos uma letra.
+        throw std::invalid_argument("Email Inválido!4");
 }
 
 void Email::set_email(std::string email){
@@ -675,10 +696,9 @@ Vagas::Vagas(int vagas){
     set_vagas(vagas);
 }
 
-//Teste.
+// Teste.
 // int main() {
-//     Vagas vagas1(5);
-//     cout << vagas1.get_vagas();
-// 	return 0;
-//	55-61-999717297
-// }
+//     Email e1(".a sd .");
+//     std::cout << e1.get_email();
+//  	return 0;
+//  }
