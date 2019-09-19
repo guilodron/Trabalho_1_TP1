@@ -3,7 +3,7 @@
 
 #include <string>
 
-/// @brief Domínio Assento
+/// @brief Domï¿½nio Assento
 ///
 /// Representa o assento e pode receber 2 valores
 /// 'D' ou 'T'
@@ -74,13 +74,11 @@ class Cidade{
 private:
     std::string nome_cidade;
     void set_nome_cidade(std::string nome);
-    bool validar_nome_cidade(std::string nome);
+    void valida_nome_cidade(std::string nome);
 public:
-    Cidade();
+    Cidade(std::string nome);
     std::string get_nome_cidade();
-    void cadastrar_nome_cidade(std::string nome);
-    void alterar_nome_cidade(std::string nome);
-};
+    };
 
 class Cpf{
 private:

@@ -153,62 +153,39 @@ Codigo_de_Reserva::Codigo_de_Reserva(std::string codigo) {
 
 ////////////////////////////////////////////////////// Cidade
 
-void Cidade::set_nome_cidade(std::string nome) {
-    this->nome_cidade = nome;
-}
-
 std::string Cidade::get_nome_cidade(){
     return this->nome_cidade;
 }
 
-bool Cidade::validar_nome_cidade(std::string nome) {
+void Cidade::set_nome_cidade(std::string nome) {
+    valida_nome_cidade(nome);
+    this->nome_cidade = nome;
+}
+
+void Cidade::valida_nome_cidade(std::string nome) {
     // Verifica tamanho.
     if (nome.length() < 1 || nome.length() > 10) {
-        return false;
+        throw std::invalid_argument("Nome de cidade Inválido!!");
     }
     // Verifica se tem apenas caracteres validos, sem espaços seguidos e com letra antes de ponto.
     for(int i = 0; i < nome.length(); i++) {
         if (!(isalpha(nome[i]) || nome[i] == ' ' || nome[i] == '.')||(i && ((nome[i] == ' ' && nome[i-1] == ' ')||(nome[i] == '.' && !isalpha(nome[i]))))){
-            return false;
+            throw std::invalid_argument("Nome de cidade Inválido!!");
         }
     }
     // Verifica se ha ao menos uma letra.
+    int cont = 0;
     for(int i = 0; i < nome.length(); i++) {
         if (isalpha(nome[i])){
-            return true;
+            cont++;
         }
     }
-    return false;
+    if(!cont)
+        throw std::invalid_argument("Nome de cidade Inválido!!");
 }
 
-void Cidade::cadastrar_nome_cidade(std::string nome) {
-    if (get_nome_cidade() != "") {
-        std::cout << "Nome já cadastrado.\n";
-    }else {
-        if (validar_nome_cidade(nome)) {
-            set_nome_cidade(nome);
-            std::cout << "Nome cadastrado.\n";
-        }else {
-            std::cout << "Nome inválido.\n";
-        }
-    }
-}
-
-void Cidade::alterar_nome_cidade(std::string nome) {
-    if (get_nome_cidade() == "") {
-        std::cout << "Nome ainda não foi cadastrado.\n";
-    }else {
-        if (validar_nome_cidade(nome)) {
-            set_nome_cidade(nome);
-            std::cout << "Nome alterado.\n";
-        }else {
-            std::cout << "Nome inválido.\n";
-        }
-    }
-}
-
-Cidade::Cidade() {
-    this->set_nome_cidade("");
+Cidade::Cidade(std::string nome) {
+    set_nome_cidade(nome);
 }
 
 ////////////////////////////////////////////////////// CPF
@@ -411,7 +388,7 @@ Estado::Estado(std::string estado){
  - Sem espaços em sequência.
 */
 
-void Email::valida_email(std::string email){ // TERMINAR.
+void Email::valida_email(std::string email){
     int cont = 0;
     if (email.length() < 1 || email.length() > 20)
         throw std::invalid_argument("Email Inválido!0");
@@ -698,7 +675,7 @@ Vagas::Vagas(int vagas){
 
 // Teste.
 // int main() {
-//     Email e1(".a sd .");
-//     std::cout << e1.get_email();
+//     Cidade c1(". ");
+//     std::cout << c1.get_nome_cidade();
 //  	return 0;
 //  }
