@@ -79,13 +79,18 @@ int Bagagem::get_numero_de_bagagem() {
 ///
 /// Recebe um valor de bagagem e, caso seja valido,
 /// atribui esse valor ao numero de bagagem
-/// @param tipo representa a quantidade de bagagem
+/// @param num representa a quantidade de bagagem
 Bagagem::Bagagem(int num) {
     set_numero_de_bagagem(num);
 }
 
 ////////////////////////////////////////////////////// Codigo de Banco
 
+/// @brief Construtor da classe Codigo_de_Banco
+///
+/// Recebe uma string com um codigo de banco, caso seja valido
+/// atribui esse valor ao codigo
+/// @param codigo representa o codigo a ser definido
 void Codigo_de_Banco::set_codigo(std::string codigo) {
     valida(codigo);
     this->codigo = codigo;
@@ -109,6 +114,11 @@ Codigo_de_Banco::Codigo_de_Banco(std::string codigo) {
 
 ////////////////////////////////////////////////////// Codigo de Carona
 
+/// @brief Construtor da classe Codigo_de_Carona
+///
+/// Recebe uma string com um codigo de carona, caso seja valido
+/// atribui esse valor ao codigo
+/// @param codigo representa o codigo a ser definido
 void Codigo_de_Carona::set_codigo(std::string codigo) {
     valida(codigo);
     this->codigo = codigo;
@@ -131,6 +141,11 @@ Codigo_de_Carona::Codigo_de_Carona(std::string codigo) {
 
 ////////////////////////////////////////////////////// Codigo de Reserva
 
+/// @brief Construtor da classe Codigo_de_Reserva
+///
+/// Recebe uma string com um codigo de reserva, caso seja valido
+/// atribui esse valor ao codigo
+/// @param codigo representa o codigo a ser definido
 void Codigo_de_Reserva::set_codigo(std::string codigo) {
     valida(codigo);
     this->codigo = codigo;
@@ -184,11 +199,25 @@ void Cidade::valida_nome_cidade(std::string nome) {
         throw std::invalid_argument("Nome de cidade Inválido!!");
 }
 
+/// @brief Construtor da classe Cidade
+///
+/// Recebe uma string com um nome, caso seja valido
+/// atribui esse valor ao nome da cidade
+/// @param nome representa o nome da cidade a ser definida
 Cidade::Cidade(std::string nome) {
     set_nome_cidade(nome);
 }
 
 ////////////////////////////////////////////////////// CPF
+
+/// @brief Construtor da classe Cpf
+///
+/// Recebe uma string com um numero de cpf, caso seja valido
+/// atribui esse valor ao cpf
+/// @param cpf representa o cpf a ser definido
+Cpf::Cpf(std::string cpf) {
+	set_cpf(cpf);
+}
 
 void Cpf::valida_cpf(std::string cpf) {
     bool valido{true};
@@ -233,9 +262,7 @@ std::string Cpf::get_cpf() {
     return this->cpf;
 }
 
-Cpf::Cpf(std::string cpf) {
-    set_cpf(cpf);
-}
+
 
 //////////////////////////////////////////////////////Data
 
@@ -330,6 +357,11 @@ bool Data::valida_dia(std::string data) {
     return true;
 }
 
+/// @brief Construtor da classe Data
+///
+/// Recebe uma string com uma data, caso seja valido
+/// atribui esse valor a data
+/// @param data representa a data a ser definida
 Data::Data(std::string data) {
     set_data(data);
 }
@@ -351,6 +383,11 @@ void Duracao::valida_duracao(int duracao){
     }
 }
 
+/// @brief Construtor da classe Duracao
+///
+/// Recebe um int com um numero, caso seja valido
+/// atribui esse valor a duracao
+/// @param duracao representa a duracao a ser definida
 Duracao::Duracao(int duracao){
     set_duracao(duracao);
 }
@@ -375,6 +412,11 @@ std::string Estado::get_estado(){
     return this->estado;
 }
 
+/// @brief Construtor da classe Estado
+///
+/// Recebe uma string para estado, caso seja valido
+/// atribui esse valor ao estado
+/// @param estado representa o estado a ser definido
 Estado::Estado(std::string estado){
     set_estado(estado);
 }
@@ -411,6 +453,11 @@ void Email::set_email(std::string email){
     this->email = email;
 }
 
+/// @brief Construtor da classe Email
+///
+/// Recebe uma string com um email, caso seja valido
+/// atribui esse valor ao email
+/// @param email representa o email a ser definido
 Email::Email(std::string email){
     set_email(email);
 }
@@ -450,6 +497,11 @@ std::string Nome::get_nome(){
     return this->nome;
 }
 
+/// @brief Construtor da classe Nome
+///
+/// Recebe uma string com um nome, caso seja valido
+/// atribui esse valor ao nome
+/// @param nome representa o nome a ser definido
 Nome::Nome(std::string nome){
     set_nome(nome);
 }
@@ -491,6 +543,11 @@ std::string Numero_de_Agencia::get_numero_de_agencia(){
     return this->numero_de_agencia;
 }
 
+/// @brief Construtor da classe Numero_de_Agencia
+///
+/// Recebe uma string com um numero de agencia, caso seja valido
+/// atribui esse valor ao numero da agencia
+/// @param numero_de_agencia representa o numero de agencia a ser definido
 Numero_de_Agencia::Numero_de_Agencia(std::string numero_de_agencia){
     set_numero_de_agencia(numero_de_agencia);
 }
@@ -536,6 +593,11 @@ std::string Numero_de_Conta::get_numero_de_conta()
 	return this->numero_de_conta;
 }
 
+/// @brief Construtor da classe Numero_de_Conta
+///
+/// Recebe uma string com um numero de conta, caso seja valido
+/// atribui esse valor ao numero da conta
+/// @param numero_de_conta representa o numero de conta a ser definido
 Numero_de_Conta::Numero_de_Conta(std::string numero_de_conta)
 {
 	set_numero_de_conta(numero_de_conta);
@@ -570,6 +632,11 @@ float Preco::get_preco()
 	return this->preco;
 }
 
+/// @brief Construtor da classe Preco
+///
+/// Recebe um float com um numero de preco, caso seja valido
+/// atribui esse valor ao preco
+/// @param preco representa o preco a ser definido
 Preco::Preco(float preco)
 {
 	set_preco(preco);
