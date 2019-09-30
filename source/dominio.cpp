@@ -662,6 +662,11 @@ void Telefone::set_telefone(std::string telefone) {
 	this->telefone = telefone;
 }
 
+/// @brief Construtor da classe Telefone
+///
+/// Recebe uma string com um numero de telefone, caso seja valido
+/// atribui esse valor ao telefone
+/// @param telefone representa o numero de telefone a ser definido
 Telefone::Telefone(std::string telefone) {
 	set_telefone(telefone);
 }
@@ -711,6 +716,11 @@ void Senha::set_senha(std::string senha){
     this->senha = senha;
 }
 
+/// @brief Construtor da classe Senha
+///
+/// Recebe uma string com uma senha, caso seja valido
+/// atribui esse valor a senha
+/// @param senha representa a senha a ser definida
 Senha::Senha(std::string senha){
     set_senha(senha);
 }
@@ -736,6 +746,11 @@ int Vagas::get_vagas(){
     return this->vagas;
 }
 
+/// @brief Construtor da classe Vagas
+///
+/// Recebe uma inteiro com um numero de vagas, caso seja valido
+/// atribui esse valor a vagas
+/// @param vagas representa o numero de vagas a ser definido
 Vagas::Vagas(int vagas){
     set_vagas(vagas);
 }

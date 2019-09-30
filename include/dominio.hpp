@@ -3,7 +3,7 @@
 
 #include <string>
 
-/// @brief Dom�nio Assento
+/// @brief Dominio Assento
 ///
 /// Representa o assento e pode receber 2 valores
 /// 'D' ou 'T'
@@ -33,6 +33,10 @@ public:
     int get_numero_de_bagagem();
 };
 
+///@brief Dominio Codigo de Banco
+///
+/// Representa o codigo do banco, que deve ter formato
+/// XXX, onde X e digito de 0-9
 class Codigo_de_Banco{
 private:
 	const int tamanho = 3;
@@ -45,6 +49,10 @@ public:
     Codigo_de_Banco(std::string codigo);
 };
 
+///@brief Dominio Codigo de Carona
+///
+/// Representa o codigo do carona, que deve ter formato
+/// XXXX, onde X e digito de 0-9
 class Codigo_de_Carona{
 private:
 	const int tamanho = 4;
@@ -57,6 +65,10 @@ public:
     Codigo_de_Carona(std::string codigo);
 };
 
+///@brief Dominio Codigo de Reserva
+///
+/// Representa o codigo do banco, que deve ter formato
+/// XXXXX, onde X e digito de 0-9
 class Codigo_de_Reserva{
 private:
 	const int tamanho = 5;
@@ -69,7 +81,12 @@ public:
     Codigo_de_Reserva(std::string codigo);
 };
 
-
+///@brief Dominio Cidade
+///
+/// Representa a cidade, que deve possuir de 1 a 10
+/// caracteres, onde cada caracter pode ser letra, ponto ou espaco.
+/// pelo menos um caracter e letra, antes de ponto deve haver letra e
+/// nao ha espacos em sequencia
 class Cidade{
 private:
     std::string nome_cidade;
@@ -80,6 +97,11 @@ public:
     std::string get_nome_cidade();
     };
 
+///@brief Dominio Cpf
+///
+/// Representa o cpf, que deve ter formato
+/// XXX.XXX.XXX-XX onde X e digito 0-9, com a presenca de
+/// digitos verificadores
 class Cpf{
 private:
     std::string cpf;
@@ -90,6 +112,11 @@ public:
     Cpf(std::string cpf);
 };
 
+///@brief Dominio Data
+///
+/// Representa a data que deve ter formato
+/// DD/MM/AAAA. DD e numero de 1-31. MM e numero de 1-12
+/// AAAA e numero de 2000-2099
 class Data{
 private:
 	const int tamanho = 10;
@@ -107,6 +134,9 @@ public:
 
 };
 
+///@brief Dominio Duracao
+///
+/// Representa a duracao, que deve variar entre 1-48(horas)
 class Duracao{
 private:
 	const int duracao_max = 48;
@@ -119,6 +149,10 @@ public:
 	int get_duracao();
 };
 
+///@brief Dominio Estado
+///
+/// Representa a sigla de estado, que deve ser um dos
+/// estados do Brasil
 class Estado{
 private:
     std::string estado;
@@ -129,6 +163,12 @@ public:
     Estado(std::string estado);
 };
 
+///@brief Dominio Email
+///
+/// Representa o email e possui formato local@dominio. Local 
+/// possui ate 20 caracteres(ponto ou letra) e nao pode ser iniciado ou terminado
+/// por ponto. Dominio possui ate 20 caracteres(ponto ou letra), e nao pode ser iniciado por ponto
+/// ou possuir pontos em sequencia
 class Email{
 private:
     std::string email;
@@ -139,6 +179,10 @@ public:
     Email(std::string email);
 };
 
+///@brief Dominio Nome
+///
+/// Representa o nome, e possui de 1-20 caracteres(letra, ponto, espaco).
+/// Pelo menos um caracter e letra e nao existem espacos em sequencia
 class Nome{
 private:
 	const int tamanho_max = 20;
@@ -151,6 +195,10 @@ public:
     Nome(std::string nome);
 };
 
+///@brief Dominio Numero de Agencia
+///
+/// Representa o numero de agencia, que tem formato XXXX-Y
+/// onde X e digito 0-9 e Y digito verificador vide algoritmo de Luhn
 class Numero_de_Agencia{
 private:
 	const int tamanho = 6;
@@ -162,6 +210,10 @@ public:
     Numero_de_Agencia(std::string numero_de_agencia);
 };
 
+///@brief Dominio Numero de Conta
+///
+/// Representa o numero de agencia, que tem formato XXXXXX-Y
+/// onde X e digito 0-9 e Y digito verificador vide algoritmo de Luhn
 class Numero_de_Conta {
 private:
 	const int tamanho = 8;
@@ -173,6 +225,9 @@ public:
 	Numero_de_Conta(std::string numero_de_conta);
 };
 
+///@brief Dominio Preco
+///
+/// Representa o preco e varia entre 1,00 a 5.000,00
 class Preco {
 private:
 	const float preco_max = 5000.00;
@@ -186,6 +241,11 @@ public:
 	Preco(float preco);
 };
 
+///@brief Dominio Telefone
+///
+/// Representa o telefone, que possui formato XX-YY-ZZZZZZZZZ,
+/// onde X, Y e Z sao digitos de 0-9. O valor de XX nao pode ser 00.
+/// O valor de ZZZZZZZZZ nao pode ser 000000000
 class Telefone {
 private:
 	const int tamanho = 15;
@@ -197,6 +257,11 @@ public:
 	std::string get_telefone();
 };
 
+///@brief Dominio Senha
+///
+/// Representa senha e possui formato XXXXX, onde X pode
+/// ser letra(maiuscula ou minuscula), digito(0-9), #, $, % ou &.
+/// Nao podem haver caracteres repetidos
 class Senha{
 private:
 	bool possui_invalido(std::string senha);
@@ -210,6 +275,9 @@ public:
 	std::string get_senha();
 };
 
+///@brief Dominio Vagas
+///
+/// Representa a quantidade de vagas e pode variar entre 0 - 4
 class Vagas{
 private:
     int vagas;
