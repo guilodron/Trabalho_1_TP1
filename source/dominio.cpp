@@ -494,6 +494,7 @@ void Estado::valida_estado(std::string estado){
     std::string estados("AC-AL-AP-AM-BA-CE-DF-ES-GO-MA-MT-MS-MG-PA-PB-PR-PE-PI-RJ-RN-RS-RO-RR-SC-SP-SE-TO");
     if(!(estados.find(estado)!= std::string::npos && estado.find('-') == std::string::npos && estado.length() == 2)){
         throw std::invalid_argument("Sigla de Estado Inválida!!!");
+    }
 }
 
 /// @brief retorna o valor contido em estado
