@@ -205,3 +205,42 @@ float Carona::get_preco()
 {
 	return this->preco.get_preco();
 }
+
+// Conta.
+
+Conta::Conta(std::string codigo_de_banco, std::string numero_de_agencia, std::string numero_de_conta)
+{
+	set_codigo_de_banco(codigo_de_banco);
+	set_numero_de_agencia(numero_de_agencia);
+	set_numero_de_conta(numero_de_conta);
+}
+
+void Conta::set_codigo_de_banco(std::string codigo_de_banco)
+{
+	this->codigo_de_banco.set_codigo(codigo_de_banco);
+}
+
+void Conta::set_numero_de_agencia(std::string numero_de_agencia)
+{
+	this->numero_de_agencia.set_numero_de_agencia(numero_de_agencia);
+}
+
+void Conta::set_numero_de_conta(std::string numero_de_conta)
+{
+	this->numero_de_conta.set_numero_de_conta(numero_de_conta);
+}
+
+std::string Conta::get_codigo_de_banco()
+{
+	return this->codigo_de_banco.get_codigo();
+}
+
+std::string Conta::get_numero_de_agencia()
+{
+	return this->numero_de_agencia.get_numero_de_agencia();
+}
+
+std::string Conta::get_numero_de_conta()
+{
+	return this->numero_de_conta.get_numero_de_conta();
+}

@@ -77,4 +77,20 @@ public:
 
 };
 
+class Conta {
+private:
+	Codigo_de_Banco codigo_de_banco;
+	Numero_de_Agencia numero_de_agencia;
+	Numero_de_Conta numero_de_conta;
+public:
+	Conta() {};
+	Conta(std::string codigo_de_banco, std::string numero_de_agencia, std::string numero_de_conta);
+	void set_codigo_de_banco(std::string codigo_de_banco);
+	void set_numero_de_agencia(std::string numero_de_agencia);
+	void set_numero_de_conta(std::string numero_de_conta);
+	std::string get_codigo_de_banco();
+	std::string get_numero_de_agencia();
+	std::string get_numero_de_conta();
+};
+
 #endif
