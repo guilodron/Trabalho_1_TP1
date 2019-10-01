@@ -525,7 +525,7 @@ void Email::valida_email(std::string email){
     for(int i = 0; i < email.length(); i++){
         if(isalpha(email[i]))
             cont++;
-        if(!isalpha(email[i]) && email[i] != '.' && email[i] != ' ') // Letras, pontos ou espaços.
+        if(!isalpha(email[i]) && email[i] != '.' && email[i] != ' ' && email[i] != '@') // Letras, pontos ou espaços.
             throw std::invalid_argument("Email Inválido!1");
         if(i > 0 && email[i] == '.' && !isalpha(email[i-1])) // Letra antes de ponto.
             throw std::invalid_argument("Email Inválido!2");
