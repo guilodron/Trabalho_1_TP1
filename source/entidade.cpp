@@ -1,5 +1,7 @@
 #include "../include/entidade.hpp"
 
+// Usuario.
+
 Usuario::Usuario(std::string nome, std::string telefone, std::string email, std::string senha, std::string cpf)
 {
 	this->nome.set_nome(nome);
@@ -59,6 +61,8 @@ std::string Usuario::get_cpf()
 	return this->cpf.get_cpf();
 }
 
+// Reserva.
+
 Reserva::Reserva(std::string codigo_de_reserva, char assento, int bagagem)
 {
 	set_codigo_de_reserva(codigo_de_reserva);
@@ -97,5 +101,107 @@ int Reserva::get_bagagem()
 	return this->bagagem.get_numero_de_bagagem();
 }
 
+// Carona.
 
+Carona::Carona(std::string codigo_de_carona, std::string cidade_de_origem, std::string estado_de_origem,std::string cidade_de_destino, std::string estado_de_destino, std::string data, int duracao, int vagas, float preco)
+{
+	set_codigo_de_carona(codigo_de_carona);
+	set_cidade_de_origem(cidade_de_origem);
+	set_estado_de_origem(estado_de_origem);
+	set_cidade_de_destino(cidade_de_destino);
+	set_estado_de_destino(estado_de_destino);
+	set_data(data);
+	set_duracao(duracao);
+	set_vagas(vagas);
+	set_preco(preco);
+}
 
+void Carona::set_codigo_de_carona(std::string codigo_de_carona)
+{
+	this->codigo_de_carona.set_codigo(codigo_de_carona);
+}
+
+void Carona::set_cidade_de_origem(std::string cidade_de_origem)
+{
+	this->cidade_de_origem.set_nome_cidade(cidade_de_origem);	
+}
+
+void Carona::set_estado_de_origem(std::string estado_de_origem)
+{
+	this->estado_de_origem.set_estado(estado_de_origem);	
+}
+
+void Carona::set_cidade_de_destino(std::string cidade_de_destino)
+{
+	this->cidade_de_destino.set_nome_cidade(cidade_de_destino);	
+}
+
+void Carona::set_estado_de_destino(std::string estado_de_destino)
+{
+	this->estado_de_destino.set_estado(estado_de_destino);	
+}
+
+void Carona::set_data(std::string data)
+{
+	this->data.set_data(data);	
+}
+
+void Carona::set_duracao(int duracao)
+{
+	this->duracao.set_duracao(duracao);	
+}
+
+void Carona::set_vagas(int vagas)
+{
+	this->vagas.set_vagas(vagas);	
+}
+
+void Carona::set_preco(float preco)
+{
+	this->preco.set_preco(preco);	
+}
+
+std::string Carona::get_codigo_de_carona()
+{
+	return this->codigo_de_carona.get_codigo();
+}
+
+std::string Carona::get_cidade_de_origem()
+{
+	return this->cidade_de_origem.get_nome_cidade();
+}
+
+std::string Carona::get_estado_de_origem()
+{
+	return this->estado_de_origem.get_estado();
+}
+
+std::string Carona::get_cidade_de_destino()
+{
+	return this->cidade_de_destino.get_nome_cidade();
+}
+
+std::string Carona::get_estado_de_destino()
+{
+	return this->estado_de_destino.get_estado();
+}
+
+std::string Carona::get_data()
+{
+	return this->data.get_data();
+}
+
+int Carona::get_duracao()
+{
+	return this->duracao.get_duracao();
+}
+
+int Carona::get_vagas()
+{
+	return this->vagas.get_vagas();
+}
+
+float Carona::get_preco()
+{
+	return this->preco.get_preco();
+}

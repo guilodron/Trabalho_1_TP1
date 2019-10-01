@@ -3,7 +3,6 @@
 
 #include "dominio.hpp"
 
-// Nome, telefone, email, senha, CPF.
 class Usuario{
 private:
     Nome nome;
@@ -40,6 +39,42 @@ public:
 	std::string get_codigo_de_reserva();
 	char get_assento();
 	int get_bagagem();
+};
+
+class Carona {
+private:
+	Codigo_de_Carona codigo_de_carona;
+	Cidade cidade_de_origem;
+	Estado estado_de_origem;
+	Cidade cidade_de_destino;
+	Estado estado_de_destino;
+	Data data;
+	Duracao duracao;
+	Vagas vagas;
+	Preco preco;
+
+public:
+	Carona() {};
+	Carona(std::string codigo_de_carona, std::string cidade_de_origem, std::string estado_de_origem,std::string cidade_de_destino, std::string estado_de_destino, std::string data, int duracao, int vagas, float preco);
+	void set_codigo_de_carona(std::string codigo_de_carona);
+	void set_cidade_de_origem(std::string cidade_de_origem);
+	void set_estado_de_origem(std::string estado_de_origem);
+	void set_cidade_de_destino(std::string cidade_de_destino);
+	void set_estado_de_destino(std::string estado_de_destino);
+	void set_data(std::string data);
+	void set_duracao(int duracao);
+	void set_vagas(int vagas);
+	void set_preco(float preco);
+	std::string get_codigo_de_carona();
+	std::string get_cidade_de_origem();
+	std::string get_estado_de_origem();
+	std::string get_cidade_de_destino();
+	std::string get_estado_de_destino();
+	std::string get_data();
+	int get_duracao();
+	int get_vagas();
+	float get_preco();
+
 };
 
 #endif
