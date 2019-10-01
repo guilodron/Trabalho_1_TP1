@@ -3,6 +3,11 @@
 
 #include "dominio.hpp"
 
+/// @brief Entidade Usuario
+///
+/// Representa o usuario da aplicacao,
+/// que possui nome, telefone, email,
+/// senha e CPF
 class Usuario{
 private:
     Nome nome;
@@ -25,6 +30,10 @@ public:
 	std::string get_cpf();
 };
 
+/// @brief Entidade Reserva
+///
+/// Representa a reserva feita por um usuario.
+/// Possui um codigo, assento e bagagem
 class Reserva {
 private:
 	Codigo_de_Reserva codigo_de_reserva;
@@ -41,6 +50,11 @@ public:
 	int get_bagagem();
 };
 
+/// @brief Entidade Carona
+///
+/// Representa a carona feita por um usuario.
+/// Possui um codigo, cidade e estado de origem
+/// e destino, data, duracao, numero de vagas e seu preco
 class Carona {
 private:
 	Codigo_de_Carona codigo_de_carona;
@@ -77,6 +91,11 @@ public:
 
 };
 
+/// @brief Entidade Conta
+///
+/// Reprensta a conta bancaria do usuario.
+/// Possui um codigo, numero de agencia e 
+/// numero de conta
 class Conta {
 private:
 	Codigo_de_Banco codigo_de_banco;
