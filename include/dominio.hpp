@@ -15,6 +15,7 @@ public:
     void set_tipo_de_assento(char tipo);
 	char get_tipo_de_assento();
     Assento(char tipo);
+	Assento() {};
 };
 
 /// @brief Dominio Bagagem
@@ -29,6 +30,7 @@ private:
     void valida(int num);
 public:
     Bagagem(int num);
+	Bagagem() {};
     void set_numero_de_bagagem(int num);
     int get_numero_de_bagagem();
 };
@@ -44,6 +46,7 @@ private:
     std::string codigo;
 
 public:
+	Codigo_de_Banco() {};
     Codigo_de_Banco(std::string codigo);
     void set_codigo(std::string codigo);
     std::string get_codigo();
@@ -63,6 +66,7 @@ public:
     void set_codigo(std::string codigo);
     std::string get_codigo();
     Codigo_de_Carona(std::string codigo);
+	Codigo_de_Carona() {};
 };
 
 ///@brief Dominio Codigo de Reserva
@@ -79,6 +83,7 @@ public:
     void set_codigo(std::string codigo);
     std::string get_codigo();
     Codigo_de_Reserva(std::string codigo);
+	Codigo_de_Reserva() {};
 };
 
 ///@brief Dominio Cidade
@@ -93,6 +98,7 @@ private:
     void valida_nome_cidade(std::string nome);
 public:
     Cidade(std::string nome);
+	Cidade() {};
     void set_nome_cidade(std::string nome);
     std::string get_nome_cidade();
     };
@@ -111,6 +117,7 @@ public:
     void set_cpf(std::string cpf);
     std::string get_cpf();
     Cpf(std::string cpf);
+	Cpf() {};
 };
 
 ///@brief Dominio Data
@@ -129,6 +136,7 @@ private:
     bool ano_bissexto(std::string data);
 public:
     Data(std::string data);
+	Data() {};
     void set_data(std::string data);	
     std::string get_data();
 
@@ -145,6 +153,7 @@ private:
     void valida_duracao(int duracao);
 public:
     Duracao(int duracao);
+	Duracao() {};
     void set_duracao(int duracao);
 	int get_duracao();
 };
@@ -159,6 +168,7 @@ private:
     void valida_estado(std::string estado);
 public:
     Estado(std::string estado);
+	Estado() {};
     void set_estado(std::string estado);
     std::string get_estado();
 };
@@ -174,6 +184,7 @@ private:
     std::string email;
 	void valida_email(std::string email);
 public:
+	Email() {};
     Email(std::string email);
     void set_email(std::string email);
     std::string get_email();
@@ -190,6 +201,7 @@ private:
     std::string nome;
     void valida_nome(std::string nome);
 public:
+	Nome() {};
     Nome(std::string nome);
     void set_nome(std::string nome);
     std::string get_nome();
@@ -205,6 +217,7 @@ private:
     std::string numero_de_agencia;
     void valida_numero_de_agencia(std::string numero_de_agencia);
 public:
+	Numero_de_Agencia() {};
     Numero_de_Agencia(std::string numero_de_agencia);
     void set_numero_de_agencia(std::string numero_de_agencia);
     std::string get_numero_de_agencia();
@@ -220,6 +233,7 @@ private:
 	std::string numero_de_conta;
 	void valida_numero_de_conta(std::string numero_de_conta);
 public:
+	Numero_de_Conta() {};
 	Numero_de_Conta(std::string numero_de_conta);
 	void set_numero_de_conta(std::string numero_de_conta);
 	std::string get_numero_de_conta();
@@ -236,6 +250,7 @@ private:
 	void valida_preco(float preco);
 	float formata_preco(float preco);
 public:
+	Preco() {};
 	Preco(float preco);
 	void set_preco(float preco);
 	float get_preco();
@@ -252,6 +267,7 @@ private:
 	std::string telefone;
 	void valida_telefone(std::string telefone);
 public:
+	Telefone() {};
 	Telefone(std::string telefone);
 	void set_telefone(std::string telefone);	
     std::string get_telefone();
@@ -270,6 +286,7 @@ private:
 	std::string senha;
 	void valida_senha(std::string senha);
 public:
+	Senha() {};
 	Senha(std::string senha);
 	void set_senha(std::string senha);	
     std::string get_senha();
@@ -283,6 +300,7 @@ private:
     int vagas;
     void valida_vagas(int vagas);
 public:
+	Vagas() {};
     Vagas(int vagas);
     void set_vagas(int vagas);
     int get_vagas();
