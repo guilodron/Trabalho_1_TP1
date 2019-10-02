@@ -63,8 +63,8 @@ class TUCarona {
 private:
 	// Defini��es de constantes para evitar numeros m�gicos.
 	const std::string VALOR_VALIDO_CODIGO = "1234";
-	const std::string VALOR_INVALIDO_CODIGO = "123x"; \
-		const std::string VALOR_VALIDO_CIDADE_ORIGEM = "Brasilia";
+	const std::string VALOR_INVALIDO_CODIGO = "123x";
+	const std::string VALOR_VALIDO_CIDADE_ORIGEM = "Brasilia";
 	const std::string VALOR_INVALIDO_CIDADE_ORIGEM = "Bras  ilia";
 	const std::string VALOR_VALIDO_ESTADO_ORIGEM = "SP";
 	const std::string VALOR_INVALIDO_ESTADO_ORIGEM = "XX";
