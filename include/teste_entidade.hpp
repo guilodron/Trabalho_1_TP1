@@ -8,16 +8,16 @@ using namespace std;
 class TUUsuario {
 private:
 // Defini��es de constantes para evitar numeros m�gicos.
-    const static char VALOR_VALIDO_NOME = 'Marcos';
-    const static char VALOR_INVALIDO_NOME = 'ABC!!@';
-	const static char VALOR_VALIDO_TELEFONE = 'Marcos';
-    const static char VALOR_INVALIDO_TELEFONE = 'ABC!!@';
-	const static char VALOR_VALIDO_EMAIL = 'Marcos';
-    const static char VALOR_INVALIDO_EMAIL = 'ABC!!@';
-	const static char VALOR_VALIDO_SENHA = 'Marcos';
-    const static char VALOR_INVALIDO_SENHA = 'ABC!!@';
-	const static char VALOR_VALIDO_CPF = 'Marcos';
-    const static char VALOR_INVALIDO_CPF = 'ABC!!@';
+    const static std::string VALOR_VALIDO_NOME = "Marcos";
+    const static std::string VALOR_INVALIDO_NOME = "ABC!!@";
+	const static std::string VALOR_VALIDO_TELEFONE = "11-11-11111111";
+    const static std::string VALOR_INVALIDO_TELEFONE = "123";
+	const static std::string VALOR_VALIDO_EMAIL = "joao@email.com";
+    const static std::string VALOR_INVALIDO_EMAIL = ".joao.@..com";
+	const static std::string VALOR_VALIDO_SENHA = "#la$b";
+    const static std::string VALOR_INVALIDO_SENHA = "12345";
+	const static std::string VALOR_VALIDO_CPF = "034.869.281-12";
+    const static std::string VALOR_INVALIDO_CPF = "123.456.789-111";
 	// Refer�ncia para o objeto a ser testado.
     Usuario* usuario;
 	// Estado do teste.
@@ -37,12 +37,12 @@ public:
 class TUReserva {
 private:
 // Defini��es de constantes para evitar numeros m�gicos.
-    const static char VALOR_VALIDO_CODIGO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_CODIGO = 'ABC!!@';
-	const static char VALOR_VALIDO_ASSENTO = 'Marcos';
-    const static char VALOR_INVALIDO_ASSENTO = 'ABC!!@';
-	const static char VALOR_VALIDO_BAGAGEM = 'Marcos';
-    const static char VALOR_INVALIDO_BAGAGEM = 'ABC!!@';
+    const static std::string VALOR_VALIDO_CODIGO = "12345";
+    const static std::string VALOR_INVALIDO_CODIGO = "123AB";
+	const static char VALOR_VALIDO_ASSENTO = "D";
+    const static char VALOR_INVALIDO_ASSENTO = "Z";
+	const static int VALOR_VALIDO_BAGAGEM = 4;
+    const static int VALOR_INVALIDO_BAGAGEM = 5;
 	// Refer�ncia para o objeto a ser testado.
     Reserva* reserva;
 	// Estado do teste.
@@ -62,24 +62,24 @@ public:
 class TUCarona {
 private:
 // Defini��es de constantes para evitar numeros m�gicos.
-    const static char VALOR_VALIDO_CODIGO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_CODIGO = 'ABC!!@';\
-	const static char VALOR_VALIDO_CIDADE_ORIGEM = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_CIDADE_ORIGEM = 'ABC!!@';
-	const static char VALOR_VALIDO_ESTADO_ORIGEM = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_ESTADO_ORIGEM = 'ABC!!@';
-	const static char VALOR_VALIDO_CIDADE_DESTINO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_CIDADE_DESTINO = 'ABC!!@';
-	const static char VALOR_VALIDO_ESTADO_DESTINO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_ESTADO_DESTINO = 'ABC!!@';
-	const static char VALOR_VALIDO_DATA = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_DATA = 'ABC!!@';
-	const static char VALOR_VALIDO_DURACAO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_DURACAO = 'ABC!!@';
-	const static char VALOR_VALIDO_VAGAS = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_VAGAS = 'ABC!!@';
-	const static char VALOR_VALIDO_PRECO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_PRECO = 'ABC!!@';
+    const static char VALOR_VALIDO_CODIGO = "1234";
+    const static char VALOR_INVALIDO_CODIGO = "123x";\
+	const static char VALOR_VALIDO_CIDADE_ORIGEM = "Brasilia";
+    const static char VALOR_INVALIDO_CIDADE_ORIGEM = "Bras  ilia";
+	const static char VALOR_VALIDO_ESTADO_ORIGEM = "Sao paulo";
+    const static char VALOR_INVALIDO_ESTADO_ORIGEM = "Sao  paulo";
+	const static char VALOR_VALIDO_CIDADE_DESTINO = "Ilheus";
+    const static char VALOR_INVALIDO_CIDADE_DESTINO = "Ilh  eus";
+	const static char VALOR_VALIDO_ESTADO_DESTINO = "Rio";
+    const static char VALOR_INVALIDO_ESTADO_DESTINO = "R  io";
+	const static char VALOR_VALIDO_DATA = "22/11/2001";
+    const static char VALOR_INVALIDO_DATA = "31/02/2004";
+	const static int VALOR_VALIDO_DURACAO = 10;
+    const static int VALOR_INVALIDO_DURACAO = 500;
+	const static int VALOR_VALIDO_VAGAS = 3;
+    const static int VALOR_INVALIDO_VAGAS = 10;
+	const static float VALOR_VALIDO_PRECO = 50.00;
+    const static float VALOR_INVALIDO_PRECO = 6000;
 	// Refer�ncia para o objeto a ser testado.
     Carona* carona;
 	// Estado do teste.
@@ -99,12 +99,12 @@ public:
 class TUConta {
 private:
 // Defini��es de constantes para evitar numeros m�gicos.
-    const static char VALOR_VALIDO_CODIGO = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_CODIGO = 'ABC!!@';
-	const static char VALOR_VALIDO_AGENCIA = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_AGENCIA = 'ABC!!@';
-	const static char VALOR_VALIDO_CONTA = 'Marcos';  // Usar em set_nome.
-    const static char VALOR_INVALIDO_CONTA = 'ABC!!@';
+    const std::string VALOR_VALIDO_CODIGO = "123";
+	const std::string VALOR_INVALIDO_CODIGO = "12";
+	const std::string VALOR_VALIDO_AGENCIA = "6938-5";
+	const std::string VALOR_INVALIDO_AGENCIA = "6938-4";
+	const std::string VALOR_VALIDO_CONTA = "452765-1";
+	const std::string VALOR_INVALIDO_CONTA = "452765-2";
 	// Refer�ncia para o objeto a ser testado.
     Conta* conta;
 	// Estado do teste.
